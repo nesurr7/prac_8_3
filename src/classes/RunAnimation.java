@@ -8,11 +8,8 @@ import java.io.IOException;
 
 public class RunAnimation extends JFrame{
     public RunAnimation(){
-       setSettings();
-    }
-
-    public void setSettings(){
-        Image defaultImage = null;
+        //для задания размера окна
+        Image defaultImage=null;
         try {
             defaultImage = ImageIO.read(new File("rsc\\image1.png"));
         } catch (IOException e) {

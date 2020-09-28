@@ -12,15 +12,15 @@ import java.util.ArrayList;
 public class Panel extends JPanel implements ActionListener {
     private ArrayList<Image> images = new ArrayList<>();
     private int arrLen;
-    private Timer timer;
     private int counter = 0;//для цикличности
-    public static int imageWidth, imageHeight;
+    private static int imageWidth, imageHeight;
 
     public Panel() {
+        Timer timer;
         loadImages();
         timer = new Timer(250, this);
         timer.start();
-        counter = images.toArray().length;
+        arrLen = images.toArray().length;
         imageWidth = images.get(0).getWidth(null);
         imageHeight = images.get(0).getHeight(null);
 
@@ -41,7 +41,7 @@ public class Panel extends JPanel implements ActionListener {
 
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage((images.get(counter % 5)), 0, 0, imageWidth, imageHeight, this);
+        g.drawImage((images.get(counter % arrLen)), 0, 0, imageWidth, imageHeight, this);
         counter++;
     }
 
